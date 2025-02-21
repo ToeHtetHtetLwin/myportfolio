@@ -1,0 +1,22 @@
+<h2 class="header">About Me</h2>
+<div class="flex justify-content-between m-5">
+<div class="paragraph">
+<p>I am a detail-oriented Frontend Developer with experience in building responsive, user-friendly web applications. Skilled in Angular, TypeScript, JavaScript, and PrimeNG, I specialize in creating interactive UI components and enhancing user experiences. With a strong understanding of modern frontend frameworks, performance optimization, and API integrations, I am passionate about developing scalable and maintainable web solutions. I thrive in collaborative environments and continuously seek to improve my skills through the latest web technologies.</p>
+</div>
+    <div class="timeline m-2">
+      <h2 class="text-2xl font-semibold mb-4">My Journey 🚀</h2>
+      <p-timeline [value]="timelineEvents">
+        <ng-template pTemplate="content" let-event>
+          <p>{{ event.event }}</p>
+          <p>{{event.year}}</p>
+        </ng-template>
+      </p-timeline>
+    </div>
+</div>
+<div class="flex justify-content-center mb-5">
+    <p-button label="Next" (click)=goToNext() icon="pi pi-arrow-right" iconPos="right" severity="secondary" /> 
+</div>
+  
+   
+
+  

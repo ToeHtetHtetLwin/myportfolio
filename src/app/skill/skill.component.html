@@ -1,0 +1,9 @@
+<div class="flex justify-content-center">
+  <div class="width">
+    <h2 class="text-2xl font-semibold mb-4">Skills 💻</h2>
+    <div *ngFor="let skill of skills" class="mb-4">
+      <p class="text-gray-700">{{ skill.name }}</p>
+      <p-progressBar [value]="skill.value"></p-progressBar>
+    </div>
+  </div>
+</div>
