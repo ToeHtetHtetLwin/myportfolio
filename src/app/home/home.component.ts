@@ -1,24 +1,33 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ProfileComponent } from '../profile/profile.component';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TabMenuModule,ProfileComponent],
+  imports: [TabMenuModule,ProfileComponent,CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  items: MenuItem[] | undefined;
-
+  constructor(private router: Router) {}
+ 
+ private _currentRoute:string='';
+ public showData:boolean=true;
     ngOnInit() {
-        this.items = [
-            { label: 'Home', icon: 'pi pi-home',routerLink: ['/home']  },
-            { label: 'about', icon: 'pi pi-info-circle',routerLink: ['/about']  },
-            { label: 'skill', icon: 'pi pi-info-circle',routerLink: ['/skill']  },
-            { label: 'Contact', icon: 'pi pi-phone',routerLink: ['/contact']  },
-            {label:'Education',icon: 'pi pi-book',routerLink: ['/education'] }
-        ]
+        
+        this.checkRoute();
     }
+    checkRoute(): void {
+      this._currentRoute = this.router.url;
+      // if (this.currentRoute !== 'main') {
+      //   this.showData = false;
+      // } else {
+      //   this.showData = true;
+      // }
+      this.showData = this._currentRoute == '/home' ? true : false;
+    }
+  
 }
