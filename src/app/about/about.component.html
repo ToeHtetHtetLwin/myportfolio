@@ -1,22 +1,81 @@
-<h2 class="header">About Me</h2>
-<div class="flex justify-content-between m-5">
-<div class="paragraph">
-<p>I am a detail-oriented Frontend Developer with experience in building responsive, user-friendly web applications. Skilled in Angular, TypeScript, JavaScript, and PrimeNG, I specialize in creating interactive UI components and enhancing user experiences. With a strong understanding of modern frontend frameworks, performance optimization, and API integrations, I am passionate about developing scalable and maintainable web solutions. I thrive in collaborative environments and continuously seek to improve my skills through the latest web technologies.</p>
+<div class="flex justify-content-between">
+  <div class="ml-3">
+    <h2 class="text-shadow">Portfolio</h2>
+  </div>
+  <div class="text-shadow flex gap-5 m-4 p-3 font-sm">
+    <a class="cursor-pointer">Home</a>
+    <a class="cursor-pointer">About </a>
+    <a class="cursor-pointer">Contact</a>
+    <a class="cursor-pointer">Skills</a>
+  </div>
 </div>
-    <div class="timeline m-2">
-      <h2 class="text-2xl font-semibold mb-4">My Journey 🚀</h2>
-      <p-timeline [value]="timelineEvents">
-        <ng-template pTemplate="content" let-event>
-          <p>{{ event.event }}</p>
-          <p>{{event.year}}</p>
-        </ng-template>
-      </p-timeline>
+<div class="flex justify-content-between align-items-center m-5 p-5">
+  <div
+    pAnimateOnScroll
+    enterClass="fadeinleft"
+    leaveClass="fadeoutleft"
+    class="animate-duration-2000 animate-ease-in-out"
+  >
+    <h2 class="text-shadow">It's Me</h2>
+    <h1 class="text-shadow">Hi , I am Toe Htet Hte Lwin</h1>
+    <p class="para">
+      I am a passionate frontend junior web developer.<br />
+      I’ve built a variety of responsive web applications using Angular and
+      PrimeNG.<br />
+      I’m constantly learning and exploring new technologies.<br />
+    </p>
+    <div class="flex gap-3">
+      <p-button
+        icon="pi pi-github"
+        [rounded]="true"
+        severity="warning"
+      ></p-button>
+      <p-button icon="pi pi-facebook" [rounded]="true"></p-button>
+      <p-button
+        icon="pi pi-discord"
+        [rounded]="true"
+        severity="success"
+      ></p-button>
     </div>
-</div>
-<div class="flex justify-content-center m-5">
-    <p-button label="Next" (click)=goToNext() icon="pi pi-arrow-right" iconPos="right" severity="secondary" /> 
-</div>
-  
-   
+  </div>
 
-  
+  <div
+    pAnimateOnScroll
+    enterClass="fadeinright"
+    leaveClass="fadeoutright"
+    class="animate-duration-2000 animate-ease-in-out"
+  >
+    <img src="assets/toe.jpeg" class="profile-img" />
+  </div>
+</div>
+
+<div>
+  <h1 class="text-shadow text-center">My Skills</h1>
+
+  <div class="flex justify-content-center">
+    <p-card class="w-28rem mb-3">
+      <div class="space-y-5">
+        <div *ngFor="let skill of technicalSkills">
+          <div class="flex">
+            <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">
+              {{ skill.name }}
+            </h3>
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >{{ skill.level }}%</span
+            >
+          </div>
+          <p-progressBar
+            [value]="skill.level"
+            [showValue]="false"
+            class="h-2"
+            [styleClass]="'progress-' + skill.color"
+          >
+          </p-progressBar>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            {{ skill.experience }}
+          </p>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>

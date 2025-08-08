@@ -11,7 +11,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 })
 export class LayoutComponent {
   constructor(private router: Router) {}
-  items: MenuItem[] | undefined;
+  public items: MenuItem[] | undefined;
   ngOnInit() {
   this.items = [
     { label: 'Home', icon: 'pi pi-home',routerLink: ['/home']  },

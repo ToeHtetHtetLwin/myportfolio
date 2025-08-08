@@ -4,9 +4,9 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 
-body{
-    margin:0;
-    padding:0;
-    background-color: #8bb8e6; /* Light Gray */
-    color: #333;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(52, 44, 44); /* Lightb Gray */
+  color: azure;
 }

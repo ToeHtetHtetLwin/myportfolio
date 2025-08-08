@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '',
-    component: LayoutComponent, // Menu stays on all pages
+    component: LayoutComponent, 
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },

@@ -1,7 +1,35 @@
-.header{
-    text-align:center;
+a:hover {
+  background-color: rgb(182, 182, 72);
 }
-.paragraph{
-    text-align: justify;
-    width:700px;
+
+.para {
+  line-height: 200%;
+  font-size: x-large;
+  font-style: inherit;
+  text-shadow: 2px 2px #ff0000;
 }
+
+.profile-img {
+  width: 400px;
+  height: 400px;
+  border-radius: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgb(195, 195, 87);
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px #ff0000;
+}
+
+/* styles.css or component CSS */
+.fadeInLeft,
+.fadeInRight {
+  animation-duration:20s;
+  animation-fill-mode: both;
+}
+
