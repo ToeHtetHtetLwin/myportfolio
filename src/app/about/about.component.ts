@@ -1,14 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { Router } from '@angular/router';
-import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CardModule } from 'primeng/card';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { ChipModule } from 'primeng/chip';
-import { TabViewModule } from 'primeng/tabview';
-import { KnobModule } from 'primeng/knob';
-import { Carousel, CarouselModule } from 'primeng/carousel';
+import { CarouselModule } from 'primeng/carousel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -16,19 +13,25 @@ import { Carousel, CarouselModule } from 'primeng/carousel';
   imports: [
     ButtonModule,
     CommonModule,
-    AnimateOnScrollModule,
     CardModule,
-    ProgressBarModule,
-    ChipModule,
-    TabViewModule,
-    KnobModule,
-    CarouselModule
+    CarouselModule,
+    ProgressSpinnerModule,
+    RouterLink
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  constructor(private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
   technicalSkills = [
     {
       id: 1,
@@ -60,32 +63,39 @@ export class AboutComponent {
     },
   ];
 
- public projects = [
-  {
-    id: 1,
-    title: 'Angular Portfolio Website',
-    description: 'My personal portfolio site built with Angular and PrimeNG.',
-    screenshots: [
-      'assets/pj1.png'
-      
-    ],
-    github: 'https://github.com/username/angular-portfolio',
-    liveDemo: 'https://myportfolio.example.com'
-  },
-  {
-    id: 2,
-    title: 'E-commerce App',
-    description: 'A fully responsive e-commerce application using Angular and PrimeNG.',
-    screenshots: [
-      'assets/project2-1.png',
-      'assets/project2-2.png'
-    ],
-    github: 'https://github.com/username/ecommerce-app',
-    liveDemo: 'https://ecommerce.example.com'
-  }
-];
+  public projects = [
+    {
+      id: 1,
+      title: 'Notification App',
+      description: 'A responsive notification application using Angular and PrimeNG.',
+      image:
+        'assets/m1.png'
+    },
+    {
+      id: 2,
+      title: 'E-commerce App',
+      description: 'A fully responsive e-commerce application using Angular and PrimeNG.',
+      image:
+        'assets/s1.png'
+    },
+    {
+      id: 3,
+      title: 'Angular Portfolio Website',
+      description: 'My personal portfolio site built with Angular and PrimeNG.',
+      image:
+        'assets/pj1.png'
+    }
+  ];
 
-  goToNext() {
-    this.router.navigate(['/skill']);
+  goToGitHub() {
+    window.open('https://github.com/ToeHtetHtetLwin', '_blank');
+  }
+
+  goToFacebook() {
+    window.open('https://facebook.com/yourprofile', '_blank');
+  }
+
+  goToDiscord() {
+    window.open('https://discord.com/', '_blank');
   }
 }

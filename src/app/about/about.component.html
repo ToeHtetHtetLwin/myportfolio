@@ -2,20 +2,15 @@
   <div class="ml-3">
     <h2 class="text-shadow">Portfolio</h2>
   </div>
-  <div class="text-shadow flex gap-5 m-4 p-3 font-sm">
-    <a class="cursor-pointer">Home</a>
-    <a class="cursor-pointer">About </a>
-    <a class="cursor-pointer">Contact</a>
-    <a class="cursor-pointer">Skills</a>
+  <div class="text-link flex gap-5 m-4 p-3 font-sm">
+    <span [routerLink]="[]" fragment="home" class="cursor-pointer">Home</span>
+    <span [routerLink]="[]" fragment="about" class="cursor-pointer">About </span>
+    <span [routerLink]="[]" fragment="contact" class="cursor-pointer">Contact</span>
+    <span [routerLink]="[]" fragment="skill" class="cursor-pointer">Skills</span>
   </div>
 </div>
-<div class="flex justify-content-between align-items-center m-5 p-5">
-  <div
-    pAnimateOnScroll
-    enterClass="fadeinleft"
-    leaveClass="fadeoutleft"
-    class="animate-duration-2000 animate-ease-in-out"
-  >
+<div id="about" class="flex justify-content-between align-items-center m-5 p-5">
+  <div>
     <h2 class="text-shadow">It's Me</h2>
     <h1 class="text-shadow">Hi , I am Toe Htet Hte Lwin</h1>
     <p class="para">
@@ -25,31 +20,20 @@
       I’m constantly learning and exploring new technologies.<br />
     </p>
     <div class="flex gap-3">
-      <p-button
-        icon="pi pi-github"
-        [rounded]="true"
-        severity="warning"
-      ></p-button>
+      <p-button icon="pi pi-github" [rounded]="true" severity="warning" (onClick)="goToGitHub()"></p-button>
       <p-button icon="pi pi-facebook" [rounded]="true"></p-button>
-      <p-button
-        icon="pi pi-discord"
-        [rounded]="true"
-        severity="success"
-      ></p-button>
+      <p-button icon="pi pi-discord" [rounded]="true" severity="success" (onClick)="goToDiscord()"></p-button>
     </div>
   </div>
 
-  <div
-    pAnimateOnScroll
-    enterClass="fadeinright"
-    leaveClass="fadeoutright"
-    class="animate-duration-2000 animate-ease-in-out"
-  >
+  <div class="animate-duration-2000 animate-ease-in-out">
     <img src="assets/toe.jpeg" class="profile-img" />
   </div>
 </div>
 
-<div>
+
+@defer (on timer(2s)) {
+<div id="skill">
   <h1 class="text-shadow text-center">My Skills</h1>
 
   <div class="flex flex-wrap gap-4 justify-content-center p-2">
@@ -62,44 +46,79 @@
     }
   </div>
 </div>
+} @placeholder {
+<div class="flex justify-content-center p-4">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+}
 
-<div class="projects-section p-2">
-  <h1 class="text-center text-shadow mb-5">My Projects</h1>
-  <div class="flex flex-wrap justify-content-center gap-4">
-    <p-card *ngFor="let project of projects" class="w-30rem">
-      <p-carousel
-        [value]="project.screenshots"
-        [numVisible]="1"
-        [numScroll]="1"
-        [circular]="true"
-        [autoplayInterval]="3000"
-        class=""
-        [showIndicators]="true"
-      >
-        <ng-template let-image pTemplate="item">
-          <img
-            [src]="image"
-            alt="{{ project.title }}"
-            style="width: 100%; height: 100px"
-          />
-        </ng-template>
-      </p-carousel>
+@defer (on timer(2s)) {
+<div class="projects-section">
+  <h1 class="text-center text-shadow mb-2">My Projects</h1>
 
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
 
-      <!-- Buttons for GitHub & Live Demo -->
-      <!-- <div class="flex gap-3 mt-3">
-        <a [href]="project.github" target="_blank" class="p-button p-component p-button-info">
-          <span class="p-button-icon pi pi-github"></span>
-          <span class="p-button-label">GitHub</span>
-        </a>
+  <div class="flex m-2 gap-3">
+    <p-card *ngFor="let project of projects" class="project-card">
+      <div class="card-image-container">
+        <img [src]="project.image" alt="{{ project.title }}" class="project-image" />
+      </div>
 
-        <a [href]="project.liveDemo" target="_blank" class="p-button p-component p-button-success">
-          <span class="p-button-icon pi pi-external-link"></span>
-          <span class="p-button-label">Live Demo</span>
-        </a>
-      </div> -->
+      <div class="card-content">
+        <h2 class="project-title">{{ project.title }}</h2>
+        <p class="project-description">{{ project.description }}</p>
+      </div>
     </p-card>
   </div>
+
 </div>
+} @placeholder {
+<div class="flex justify-content-center p-4">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+}
+
+@defer (on timer(2s)) {
+<h1 class="text-center text-shadow">Education</h1>
+
+<div class="education-section text-center">
+  <div>
+    <i class="pi pi-graduation-cap"></i>
+    <div>
+      <h3 class="font-bold">University</h3>
+      <h2>University Of Computer Studies Yangon</h2>
+    </div>
+    <div class="mb-2">
+      <img src="assets/uni.jpeg" class="uni-img" />
+    </div>
+  </div>
+</div>}
+@placeholder {
+<div class="flex justify-content-center p-4">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+}
+
+<div id="contact"></div>
+@defer (on timer(2s)) {
+
+<h1 class="text-center text-shadow">Contact</h1>
+<div class="text-center">
+  <i class="pi pi-phone"></i>
+  <div class="">
+    <h3 class="font-bold">Phone</h3>
+    <p class="mb-0">09987470703</p>
+  </div>
+  <div class="p-2">
+    <i class="pi pi-envelope"></i>
+    <div class="">
+      <h3 class="font-bold">Email</h3>
+      <p>toehtethtetlwin123456&#64;gmail.com</p>
+    </div>
+  </div>
+</div>
+}
+@placeholder {
+<div class="flex justify-content-center p-4">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+}
