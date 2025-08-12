@@ -26,8 +26,8 @@ a:hover {
   text-shadow: 2px 2px #ff0000;
 }
 
-.text-link{
-  color:beige;
+.text-link {
+  color: beige;
 }
 
 .project-card {
@@ -71,9 +71,47 @@ a:hover {
   line-height: 1.5;
 }
 
-.uni-img{
-  width:50%;
-  height:200px;
+.uni-img {
+  width: 500px;
+  height: 300px;
   border-radius: 5px;
 }
 
+.contact-section {
+  padding: 50px 20px;
+
+}
+
+.contact-content {
+  display: flex;
+  gap: 1rem;
+  /* space between cards */
+}
+
+.contact-content p-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.contact {
+  background-color: #f8f9fa;
+}
+
+.email {
+  background-color: #f8f9fa;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

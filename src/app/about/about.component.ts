@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -22,7 +22,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  public date = Date.UTC(2025,0,2);
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.fragment.subscribe(fragment => {
@@ -37,28 +38,28 @@ export class AboutComponent {
       id: 1,
       name: 'Angular',
       level: 85,
-      experience: 'above 1year experience',
+      experience: '1year experience',
       color: 'danger',
     },
     {
       id: 2,
       name: 'TypeScript',
       level: 80,
-      experience: 'above 1year experience',
+      experience: '1year experience',
       color: 'primary',
     },
     {
       id: 3,
       name: 'HTML/CSS',
       level: 90,
-      experience: 'above 1year experience',
+      experience: '1year experience',
       color: 'warning',
     },
     {
       id: 4,
       name: 'JavaScript',
       level: 75,
-      experience: 'above 1year experience',
+      experience: '1year experience',
       color: 'success',
     },
   ];

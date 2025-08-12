@@ -20,9 +20,9 @@
       I’m constantly learning and exploring new technologies.<br />
     </p>
     <div class="flex gap-3">
-      <p-button icon="pi pi-github" [rounded]="true" severity="warning" (onClick)="goToGitHub()"></p-button>
-      <p-button icon="pi pi-facebook" [rounded]="true"></p-button>
-      <p-button icon="pi pi-discord" [rounded]="true" severity="success" (onClick)="goToDiscord()"></p-button>
+      <p-button icon="pi pi-github" [rounded]="true" severity="warning" (onClick) ="goToGitHub()"></p-button>
+      <p-button icon="pi pi-facebook" [rounded]="true" (onClick) ="goToFacebook()"></p-button>
+      <p-button icon="pi pi-discord" [rounded]="true" severity="success" (onClick) = "goToDiscord()"></p-button>
     </div>
   </div>
 
@@ -31,55 +31,48 @@
   </div>
 </div>
 
-
+<div id="skill"></div>
+<h1 class="text-shadow text-center">My Skills</h1>
 @defer (on timer(2s)) {
-<div id="skill">
-  <h1 class="text-shadow text-center">My Skills</h1>
-
-  <div class="flex flex-wrap gap-4 justify-content-center p-2">
-    @for(skill of technicalSkills; track skill.id){
-    <p-card class="w-15rem text-center">
-      <i class="pi pi-desktop"></i>
-      <h3>{{ skill.name }}</h3>
-      <p>{{ skill.experience }}</p>
-    </p-card>
-    }
-  </div>
+<div class="flex flex-wrap gap-4 justify-content-center p-2">
+  @for(skill of technicalSkills; track skill.id){
+  <p-card class="w-15rem text-center">
+    <i class="pi pi-desktop"></i>
+    <h3>{{ skill.name }}</h3>
+    <p>{{ skill.experience }}</p>
+  </p-card>
+  }
 </div>
 } @placeholder {
 <div class="flex justify-content-center p-4">
-  <p-progressSpinner></p-progressSpinner>
+  <span>skills are preparing...</span>
 </div>
 }
 
+<div class="projects-section"></div>
+<h1 class="text-center text-shadow mb-2">My Projects</h1>
 @defer (on timer(2s)) {
-<div class="projects-section">
-  <h1 class="text-center text-shadow mb-2">My Projects</h1>
+<div class="flex m-2 gap-3">
+  <p-card *ngFor="let project of projects" class="project-card">
+    <div class="card-image-container">
+      <img [src]="project.image" alt="{{ project.title }}" class="project-image" />
+    </div>
 
-
-  <div class="flex m-2 gap-3">
-    <p-card *ngFor="let project of projects" class="project-card">
-      <div class="card-image-container">
-        <img [src]="project.image" alt="{{ project.title }}" class="project-image" />
-      </div>
-
-      <div class="card-content">
-        <h2 class="project-title">{{ project.title }}</h2>
-        <p class="project-description">{{ project.description }}</p>
-      </div>
-    </p-card>
-  </div>
-
+    <div class="card-content">
+      <h2 class="project-title">{{ project.title }}</h2>
+      <p class="project-description">{{ project.description }}</p>
+    </div>
+  </p-card>
 </div>
+
 } @placeholder {
 <div class="flex justify-content-center p-4">
-  <p-progressSpinner></p-progressSpinner>
+  <span>projects are preparing...</span>
 </div>
 }
 
-@defer (on timer(2s)) {
 <h1 class="text-center text-shadow">Education</h1>
-
+@defer (on timer(2s)) {
 <div class="education-section text-center">
   <div>
     <i class="pi pi-graduation-cap"></i>
@@ -94,31 +87,38 @@
 </div>}
 @placeholder {
 <div class="flex justify-content-center p-4">
-  <p-progressSpinner></p-progressSpinner>
+  <span>Prepare education part...</span>
 </div>
 }
 
-<div id="contact"></div>
+<h1 id="contact" class="text-center text-shadow">Contact Me</h1>
 @defer (on timer(2s)) {
+<div class="flex justify-content-center">
+  <div class="contact-content">
+    <p-card class="contact">
+      <div>
+        <i class="pi pi-phone contact-icon"></i>
+        <div class="contact-info">
+          <h3 class="font-bold">Phone</h3>
+          <p class="mb-0">09987470703</p>
+        </div>
+      </div>
+    </p-card>
 
-<h1 class="text-center text-shadow">Contact</h1>
-<div class="text-center">
-  <i class="pi pi-phone"></i>
-  <div class="">
-    <h3 class="font-bold">Phone</h3>
-    <p class="mb-0">09987470703</p>
-  </div>
-  <div class="p-2">
-    <i class="pi pi-envelope"></i>
-    <div class="">
-      <h3 class="font-bold">Email</h3>
-      <p>toehtethtetlwin123456&#64;gmail.com</p>
-    </div>
+    <p-card class="email">
+      <div>
+        <i class="pi pi-envelope contact-icon"></i>
+        <div class="contact-info">
+          <h3 class="font-bold">Email</h3>
+          <p>toehtethtetlwin123456&#64;gmail.com</p>
+        </div>
+      </div>
+    </p-card>
   </div>
 </div>
 }
 @placeholder {
 <div class="flex justify-content-center p-4">
-  <p-progressSpinner></p-progressSpinner>
+  <span>Contact is preparing...</span>
 </div>
 }
