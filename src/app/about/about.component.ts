@@ -93,7 +93,7 @@ export class AboutComponent {
   }
 
   goToFacebook() {
-    window.open('https://facebook.com', '_blank');
+    window.open('https://www.facebook.com/share/1BRbrLVxYM/', '_blank');
   }
 
   goToDiscord() {
