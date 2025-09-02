@@ -1,0 +1,124 @@
+<div class="flex justify-content-between">
+  <div class="ml-3">
+    <h2 class="text-shadow">Portfolio</h2>
+  </div>
+  <div class="text-link flex gap-5 m-4 p-3 font-sm">
+    <span [routerLink]="[]" fragment="home" class="cursor-pointer">Home</span>
+    <span [routerLink]="[]" fragment="about" class="cursor-pointer">About </span>
+    <span [routerLink]="[]" fragment="contact" class="cursor-pointer">Contact</span>
+    <span [routerLink]="[]" fragment="skill" class="cursor-pointer">Skills</span>
+  </div>
+</div>
+<div id="about" class="flex justify-content-between align-items-center m-5 p-5">
+  <div>
+    <h2 class="text-shadow">It's Me</h2>
+    <h1 class="text-shadow">Hi , I am Toe Htet Hte Lwin</h1>
+    <p class="para">
+      I am a passionate frontend junior web developer.<br />
+      I’ve built a variety of responsive web applications using Angular and
+      PrimeNG.<br />
+      I’m constantly learning and exploring new technologies.<br />
+    </p>
+    <div class="flex gap-3">
+      <p-button icon="pi pi-github" [rounded]="true" severity="warning" (onClick) ="goToGitHub()"></p-button>
+      <p-button icon="pi pi-facebook" [rounded]="true" (onClick) ="goToFacebook()"></p-button>
+      <p-button icon="pi pi-discord" [rounded]="true" severity="success" (onClick) = "goToDiscord()"></p-button>
+    </div>
+  </div>
+
+  <div class="animate-duration-2000 animate-ease-in-out">
+    <img src="assets/toe.jpeg" class="profile-img" />
+  </div>
+</div>
+
+<div id="skill"></div>
+<h1 class="text-shadow text-center">My Skills</h1>
+@defer (on timer(2s)) {
+<div class="flex flex-wrap gap-4 justify-content-center p-2">
+  @for(skill of technicalSkills; track skill.id){
+  <p-card class="w-15rem text-center">
+    <i class="pi pi-desktop"></i>
+    <h3>{{ skill.name }}</h3>
+    <p>{{ skill.experience }}</p>
+  </p-card>
+  }
+</div>
+} @placeholder {
+<div class="flex justify-content-center p-4">
+  <span>skills are preparing...</span>
+</div>
+}
+
+<div class="projects-section"></div>
+<h1 class="text-center text-shadow mb-2">My Projects</h1>
+@defer (on timer(2s)) {
+<div class="flex m-2 gap-3">
+  <p-card *ngFor="let project of projects" class="project-card">
+    <div class="card-image-container">
+      <img [src]="project.image" alt="{{ project.title }}" class="project-image" />
+    </div>
+
+    <div class="card-content">
+      <h2 class="project-title">{{ project.title }}</h2>
+      <p class="project-description">{{ project.description }}</p>
+    </div>
+  </p-card>
+</div>
+
+} @placeholder {
+<div class="flex justify-content-center p-4">
+  <span>projects are preparing...</span>
+</div>
+}
+
+<h1 class="text-center text-shadow">Education</h1>
+@defer (on timer(2s)) {
+<div class="education-section text-center">
+  <div>
+    <i class="pi pi-graduation-cap"></i>
+    <div>
+      <h3 class="font-bold">University</h3>
+      <h2>University Of Computer Studies Yangon</h2>
+    </div>
+    <div class="mb-2">
+      <img src="assets/uni.jpeg" class="uni-img" />
+    </div>
+  </div>
+</div>}
+@placeholder {
+<div class="flex justify-content-center p-4">
+  <span>Prepare education part...</span>
+</div>
+}
+
+<h1 id="contact" class="text-center text-shadow">Contact Me</h1>
+@defer (on timer(2s)) {
+<div class="flex justify-content-center">
+  <div class="contact-content">
+    <p-card class="contact">
+      <div>
+        <i class="pi pi-phone contact-icon"></i>
+        <div class="contact-info">
+          <h3 class="font-bold">Phone</h3>
+          <p class="mb-0">09987470703</p>
+        </div>
+      </div>
+    </p-card>
+
+    <p-card class="email">
+      <div>
+        <i class="pi pi-envelope contact-icon"></i>
+        <div class="contact-info">
+          <h3 class="font-bold">Email</h3>
+          <p>toehtethtetlwin123456&#64;gmail.com</p>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+}
+@placeholder {
+<div class="flex justify-content-center p-4">
+  <span>Contact is preparing...</span>
+</div>
+}
