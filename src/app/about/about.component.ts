@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -16,19 +16,21 @@ import { RouterLink } from '@angular/router';
     CardModule,
     CarouselModule,
     ProgressSpinnerModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  public date = Date.UTC(2025,0,2);
-  constructor(private route: ActivatedRoute) { }
+  public date = Date.UTC(2025, 0, 2);
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.fragment.subscribe(fragment => {
+    this.route.fragment.subscribe((fragment) => {
       if (fragment) {
-        document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+        document
+          .getElementById(fragment)
+          ?.scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
@@ -68,24 +70,23 @@ export class AboutComponent {
     {
       id: 1,
       title: 'Notification App',
-      description: 'A responsive notification application using Angular and PrimeNG.',
-      image:
-        'assets/m1.png'
+      description:
+        'A responsive notification application using Angular and PrimeNG.',
+      image: 'assets/m1.png',
     },
     {
       id: 2,
       title: 'E-commerce App',
-      description: 'A fully responsive e-commerce application using Angular and PrimeNG.',
-      image:
-        'assets/s1.png'
+      description:
+        'A fully responsive e-commerce application using Angular and PrimeNG.',
+      image: 'assets/s1.png',
     },
     {
       id: 3,
       title: 'Angular Portfolio Website',
       description: 'My personal portfolio site built with Angular and PrimeNG.',
-      image:
-        'assets/pj1.png'
-    }
+      image: 'assets/pj1.png',
+    },
   ];
 
   goToGitHub() {
@@ -98,5 +99,12 @@ export class AboutComponent {
 
   goToDiscord() {
     window.open('https://discord.com/', '_blank');
+  }
+
+  downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'assets/toetoeCV.pdf';
+    link.download = 'Toe-Htet-Htet-Lwin-CV.pdf';
+     link.click();
   }
 }
