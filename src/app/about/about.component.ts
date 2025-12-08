@@ -6,6 +6,7 @@ import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RouterLink } from '@angular/router';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-about',
@@ -17,6 +18,7 @@ import { RouterLink } from '@angular/router';
     CarouselModule,
     ProgressSpinnerModule,
     RouterLink,
+    DividerModule,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
@@ -67,25 +69,31 @@ export class AboutComponent {
   ];
 
   public projects = [
+    // {
+    //   id: 1,
+    //   title: 'Notification App',
+    //   description:
+    //     'A responsive notification application using Angular and PrimeNG.',
+    //   image: 'assets/m1.png',
+    //   demourl: '',
+    //   githuburl: 'https://github.com/ToeHtetHtetLwin/shopping',
+    // },
     {
       id: 1,
-      title: 'Notification App',
+      title: 'E-commerce App',
       description:
-        'A responsive notification application using Angular and PrimeNG.',
-      image: 'assets/m1.png',
+        'A fully responsive e-commerce application using Angular and PrimeNG.Showing just the frontend design for the app by using angular signal which automatically notifies any part of the application that depends on it when its value changes.',
+      image: 'assets/e-commerce.png',
+      demourl: 'https://toehtethtetlwin.github.io/shopping/#/login',
+      githuburl: 'https://github.com/ToeHtetHtetLwin/shopping',
     },
     {
       id: 2,
-      title: 'E-commerce App',
-      description:
-        'A fully responsive e-commerce application using Angular and PrimeNG.',
-      image: 'assets/s1.png',
-    },
-    {
-      id: 3,
       title: 'Angular Portfolio Website',
-      description: 'My personal portfolio site built with Angular and PrimeNG.',
-      image: 'assets/pj1.png',
+      description: 'A personal portfolio website built with Angular and PrimeNG, featuring optimized performance using Angular Defer for component lazy loading.',
+      image: 'assets/portfolio.png',
+      demourl: 'https://myportfolio-thhl.vercel.app/',
+      githuburl: 'https://github.com/ToeHtetHtetLwin/myportfoliog',
     },
   ];
 
@@ -105,6 +113,14 @@ export class AboutComponent {
     const link = document.createElement('a');
     link.href = 'assets/toetoeCV.pdf';
     link.download = 'Toe-Htet-Htet-Lwin-CV.pdf';
-     link.click();
+    link.click();
+  }
+
+  goToLiveDemo(url: any) {
+    window.open(url, '_blank');
+  }
+
+  goToGit(url: any) {
+    window.open(url, '_blank');
   }
 }

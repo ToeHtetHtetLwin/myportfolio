@@ -38,10 +38,11 @@ a:hover {
 }
 
 .project-card {
-  border: none;
+  border:none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
+ 
 
   &:hover {
     transform: translateY(-5px);
@@ -51,7 +52,7 @@ a:hover {
 
 .card-image-container {
   overflow: hidden;
-  height: 200px;
+  height: 220px;
 
   .project-image {
     width: 100%;
