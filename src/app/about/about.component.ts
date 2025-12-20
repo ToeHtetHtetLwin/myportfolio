@@ -95,6 +95,14 @@ export class AboutComponent {
       demourl: 'https://myportfolio-thhl.vercel.app/',
       githuburl: 'https://github.com/ToeHtetHtetLwin/myportfoliog',
     },
+     {
+      id: 3,
+      title: 'EMPLOYEE CRUD System',
+      description: 'The Employee CRUD System is a web-based application designed to manage employee information efficiently. The system provides full CRUD functionality—Create, Read, Update, and Delete—allowing administrators to handle employee records in a structured and user-friendly way.',
+      image: 'assets/emp.png',
+      demourl: 'https://toehtethtetlwin.pythonanywhere.com/',
+      githuburl: 'https://github.com/ToeHtetHtetLwin/Emp-CRUD',
+    },
   ];
 
   goToGitHub() {
