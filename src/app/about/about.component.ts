@@ -24,7 +24,7 @@ import { DividerModule } from 'primeng/divider';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  public date = Date.UTC(2025, 0, 2);
+  // public date = Date.UTC(2025, 0, 2);
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -69,15 +69,6 @@ export class AboutComponent {
   ];
 
   public projects = [
-    // {
-    //   id: 1,
-    //   title: 'Notification App',
-    //   description:
-    //     'A responsive notification application using Angular and PrimeNG.',
-    //   image: 'assets/m1.png',
-    //   demourl: '',
-    //   githuburl: 'https://github.com/ToeHtetHtetLwin/shopping',
-    // },
     {
       id: 1,
       title: 'E-commerce App',
@@ -90,15 +81,17 @@ export class AboutComponent {
     {
       id: 2,
       title: 'Angular Portfolio Website',
-      description: 'A personal portfolio website built with Angular and PrimeNG, featuring optimized performance using Angular Defer for component lazy loading.',
+      description:
+        'A personal portfolio website built with Angular and PrimeNG, featuring optimized performance using Angular Defer for component lazy loading.',
       image: 'assets/portfolio.png',
       demourl: 'https://myportfolio-thhl.vercel.app/',
       githuburl: 'https://github.com/ToeHtetHtetLwin/myportfoliog',
     },
-     {
+    {
       id: 3,
       title: 'EMPLOYEE CRUD System',
-      description: 'The Employee CRUD System is a web-based application designed to manage employee information efficiently. The system provides full CRUD functionality—Create, Read, Update, and Delete—allowing administrators to handle employee records in a structured and user-friendly way.',
+      description:
+        'The Employee CRUD System is a web-based application using python django designed to manage employee information efficiently. The system provides full CRUD functionality—Create, Read, Update, and Delete—allowing administrators to handle employee records in a structured and user-friendly way.',
       image: 'assets/emp.png',
       demourl: 'https://toehtethtetlwin.pythonanywhere.com/',
       githuburl: 'https://github.com/ToeHtetHtetLwin/Emp-CRUD',
